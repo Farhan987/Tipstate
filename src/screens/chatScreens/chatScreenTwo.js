@@ -13,7 +13,7 @@ export default class ChatScreenTwo extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.titleViewStyle}>
             <Text style={styles.titleStyle}>Mensajes</Text>
@@ -125,7 +125,7 @@ export default class ChatScreenTwo extends Component {
             </View>
           </View>
         </Content>
-        <CustomFooter />
+        <CustomFooter navigation={this.props.navigation} />
       </Container>
     );
   }

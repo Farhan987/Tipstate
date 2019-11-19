@@ -30,10 +30,11 @@ import { SMALL, LARGE, MEDIUM } from "../font/font";
 import CountryPicker, {
   getAllCountries
 } from "react-native-country-picker-modal";
+import SecondCustomDropdown from "../component/CustomComponents/secondCustomDropdown";
 
 const NORTH_AMERICA = ["NG", "GH", "SL", "GM", "LR"];
 
-export default class PostScreen extends Component {
+export default class NewPropertyScreen extends Component {
   constructor(props) {
     super(props);
     let userLocaleCountryCode = null;
@@ -78,7 +79,7 @@ export default class PostScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           {/* titleView */}
           <View style={styles.titleViewStyle}>
@@ -118,11 +119,11 @@ export default class PostScreen extends Component {
           </View>
           <View style={styles.halfTextInputViewStyle}>
             <View style={styles.halfTextInputStyle}>
-              <CustomDropdown width="85%" />
+              <SecondCustomDropdown width="85%" />
             </View>
 
             <View style={styles.halfTextInputStyle}>
-              <CustomDropdown width="85%" />
+              <SecondCustomDropdown width="85%" />
             </View>
           </View>
 
@@ -142,7 +143,7 @@ export default class PostScreen extends Component {
             </View>
 
             <View style={styles.halfTextInputStyle}>
-              <CustomDropdown width="85%" />
+              <SecondCustomDropdown width="85%" />
             </View>
           </View>
 
@@ -658,7 +659,7 @@ export default class PostScreen extends Component {
           </View>
           <View style={{ height: 20 }} />
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

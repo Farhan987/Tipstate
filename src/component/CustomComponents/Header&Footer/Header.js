@@ -10,14 +10,20 @@ export default class CustomHeader extends Component {
           <Title style={styles.headerTitleStyle}>Tipstate</Title>
         </Body>
         <Right>
-          <Button transparent>
+          <Button
+            transparent
+            onPress={() => this.props.navigation.navigate("NotificationScreen")}
+          >
             <Icon
               name="bell-o"
               type="FontAwesome"
               style={styles.headerIcosStyle}
             />
           </Button>
-          <Button transparent>
+          <Button
+            transparent
+            onPress={() => this.props.navigation.navigate("ProfileScreen")}
+          >
             <Icon
               name="user-circle"
               type="FontAwesome"

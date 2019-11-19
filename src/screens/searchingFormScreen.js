@@ -6,12 +6,13 @@ import CustomFooter from "../component/CustomComponents/Header&Footer/Footer";
 import { BLACK } from "../theme/colors";
 import CustomDropdown from "../component/CustomComponents/customDropdown";
 import CustomTextInput from "../component/CustomComponents/TextInput/CuustomTextInput";
+import SecondCustomDropdown from "../component/CustomComponents/secondCustomDropdown";
 
 export default class SearchingFormScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           {/* titleView */}
           <View style={styles.mainViewStyle}>
@@ -38,14 +39,14 @@ export default class SearchingFormScreen extends Component {
           {/* dropdown */}
           <View>
             <Text style={{ marginLeft: "5%" }}>Tipo de inmueble</Text>
-            <CustomDropdown />
+            <SecondCustomDropdown />
           </View>
 
           <View style={{ height: 10 }} />
           {/* dropdown */}
           <View>
             <Text style={{ marginLeft: "5%" }}>Tipo de transacción</Text>
-            <CustomDropdown />
+            <SecondCustomDropdown />
           </View>
 
           <View style={{ height: 10 }} />
@@ -90,7 +91,7 @@ export default class SearchingFormScreen extends Component {
           {/* dropdown */}
           <View>
             <Text style={{ marginLeft: "5%" }}>Anunciante</Text>
-            <CustomDropdown />
+            <SecondCustomDropdown />
           </View>
 
           <View style={{ height: 20 }} />
@@ -145,7 +146,7 @@ export default class SearchingFormScreen extends Component {
               <View style={styles.counterInnerViewStyle}>
                 <View style={styles.counterInnerViewStyle}>
                   <TouchableOpacity>
-                    <Text style={styles.counterTextStyle}>+</Text>
+                    <Text style={styles.counterTextStyle2}>+</Text>
                   </TouchableOpacity>
                 </View>
               </View>
@@ -165,14 +166,14 @@ export default class SearchingFormScreen extends Component {
               <View style={styles.counterInnerViewStyle}>
                 <View style={styles.counterInnerViewStyle}>
                   <TouchableOpacity>
-                    <Text style={styles.counterTextStyle}>+</Text>
+                    <Text style={styles.counterTextStyle2}>+</Text>
                   </TouchableOpacity>
                 </View>
               </View>
             </View>
           </View>
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }
@@ -224,5 +225,6 @@ const styles = StyleSheet.create({
     flex: 2,
     justifyContent: "center",
     alignItems: "center"
-  }
+  },
+  counterTextStyle2: { fontSize: 22, width: 20 }
 });

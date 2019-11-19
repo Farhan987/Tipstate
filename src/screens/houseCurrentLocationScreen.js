@@ -6,7 +6,8 @@ import {
   TouchableHighlight,
   Alert,
   ImageBackground,
-  TouchableOpacity
+  TouchableOpacity,
+  ScrollView
 } from "react-native";
 import {
   Container,
@@ -18,7 +19,7 @@ import {
   Left,
   Text
 } from "native-base";
-import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
+import MapView, { PROVIDER_GOOGLE, Marker } from "react-native-maps";
 import CustomHeader from "../component/CustomComponents/Header&Footer/Header";
 import CustomFooter from "../component/CustomComponents/Header&Footer/Footer";
 import { WHITE } from "../theme/colors";
@@ -35,11 +36,17 @@ export default class CurrentLocationOfHouseScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.buttonsOuterViewStyle}>
             <View style={styles.menuFlexStyle}>
-              <Button rounded style={styles.menuButtonStyle}>
+              <Button
+                rounded
+                style={styles.menuButtonStyle}
+                onPress={() =>
+                  this.props.navigation.navigate("HouseListScreen")
+                }
+              >
                 <Icon
                   name="bars"
                   type="FontAwesome"
@@ -49,14 +56,7 @@ export default class CurrentLocationOfHouseScreen extends Component {
             </View>
             <View style={{ flex: 1 }} />
             <View style={styles.mapFlexStyle}>
-              <Button
-                light
-                rounded
-                style={styles.mapButtonStyle}
-                onPress={() => {
-                  this.setModalVisible(true);
-                }}
-              >
+              <Button light rounded style={styles.mapButtonStyle}>
                 <Icon
                   name="map-marker"
                   type="FontAwesome"
@@ -65,7 +65,14 @@ export default class CurrentLocationOfHouseScreen extends Component {
               </Button>
             </View>
             <View style={styles.buscarFlexStyle}>
-              <Button iconLeft rounded style={styles.buscarButtonStyle}>
+              <Button
+                iconLeft
+                rounded
+                style={styles.buscarButtonStyle}
+                onPress={() =>
+                  this.props.navigation.navigate("SearchingFormScreen")
+                }
+              >
                 <Icon
                   name="search"
                   type="FontAwesome"
@@ -78,131 +85,143 @@ export default class CurrentLocationOfHouseScreen extends Component {
 
           <Modal
             animationType="slide"
-            transparent={false}
-            presentationStyle="fullScreen"
+            transparent={true}
+            presentationStyle="pageSheet"
             visible={this.state.modalVisible}
             onRequestClose={() => {
               Alert.alert("Modal has been closed.");
             }}
           >
-            <Card style={styles.mainViewStyle}>
-              <ImageBackground
-                style={styles.imageBackgroundStyle1}
-                imageStyle={styles.imageBackgroundStyle2}
-                source={require("../images/profile.jpg")}
-              >
-                <View style={styles.arrowDownViewStyle}>
-                  <TouchableOpacity
-                    onPress={() => {
-                      this.setModalVisible(!this.state.modalVisible);
+            <View style={styles.container1}>
+              <View
+                style={{ flex: 1, backgroundColor: "gray", opacity: 0.1 }}
+              />
+              <View style={styles.mainViewStyle}>
+                <ScrollView>
+                  <ImageBackground
+                    style={styles.imageBackgroundStyle1}
+                    imageStyle={styles.imageBackgroundStyle2}
+                    source={require("../images/profile.jpg")}
+                  >
+                    <View style={styles.arrowDownViewStyle}>
+                      <TouchableOpacity
+                        onPress={() => {
+                          this.setModalVisible(!this.state.modalVisible);
+                        }}
+                      >
+                        <Icon
+                          name="chevron-circle-down"
+                          type="FontAwesome"
+                          style={styles.arrowDownIconStyle}
+                        />
+                      </TouchableOpacity>
+                    </View>
+                    <View style={styles.iconsViewStyle}>
+                      <Right style={styles.rightTagStyle1}>
+                        <Button rounded style={styles.ventaButtonStyle}>
+                          <Text> Venta </Text>
+                        </Button>
+                      </Right>
+                      <Left style={styles.leftTagStyle1}>
+                        <TouchableOpacity>
+                          <Icon
+                            name="gavel"
+                            type="FontAwesome"
+                            style={{ color: WHITE }}
+                          />
+                        </TouchableOpacity>
+                        <View style={{ width: 20 }} />
+                        <TouchableOpacity>
+                          <Icon
+                            name="share-alt"
+                            type="FontAwesome"
+                            style={{ color: WHITE }}
+                          />
+                        </TouchableOpacity>
+                        <View style={{ width: 20 }} />
+                        <TouchableOpacity>
+                          <Icon
+                            name="heart"
+                            type="FontAwesome"
+                            style={{ color: "red" }}
+                          />
+                        </TouchableOpacity>
+                        <View style={{ width: 20 }} />
+                      </Left>
+                    </View>
+                  </ImageBackground>
+
+                  <View style={styles.contacterViewStyle}>
+                    <Right style={styles.rightTagStyle2}>
+                      <Text style={styles.priceTextStyle}>
+                        $4,250,000.00 MXN
+                      </Text>
+                    </Right>
+                    <Left style={styles.leftTagStyle1}>
+                      <Button primary style={styles.contacterButtonStyle}>
+                        <Text style={{ textAlign: "center" }}>Contactar </Text>
+                      </Button>
+                    </Left>
+                  </View>
+
+                  <View style={styles.casaMainViewStyle}>
+                    <View style={styles.casaIconViewStyle}>
+                      <Icon name="home" style={styles.casaIconStyle} />
+                    </View>
+                    <View style={styles.casaTextViewStyle}>
+                      <Text style={{ color: "#979797" }}>Casa</Text>
+                    </View>
+                    <View style={{ flex: 5 }} />
+                  </View>
+
+                  <View style={{ height: 40, flexDirection: "row" }}>
+                    <Right style={styles.rightTagStyle1}>
+                      <Text style={styles.casaModeranaTextStyle}>
+                        Casa Moderna
+                      </Text>
+                    </Right>
+                    <Left style={styles.leftTagStyle2}>
+                      <Button primary style={styles.masInfoButtonStyle}>
+                        <Text style={{ textAlign: "center" }}>
+                          Más Información
+                        </Text>
+                      </Button>
+                    </Left>
+                  </View>
+                  <View
+                    style={{
+                      justifyContent: "center",
+                      alignItems: "flex-start"
                     }}
                   >
-                    <Icon
-                      name="chevron-circle-down"
-                      type="FontAwesome"
-                      style={styles.arrowDownIconStyle}
-                    />
-                  </TouchableOpacity>
-                </View>
-                <View style={styles.iconsViewStyle}>
-                  <Right style={styles.rightTagStyle1}>
-                    <Button rounded style={styles.ventaButtonStyle}>
-                      <Text> Venta </Text>
-                    </Button>
-                  </Right>
-                  <Left style={styles.leftTagStyle1}>
-                    <TouchableOpacity>
-                      <Icon
-                        name="gavel"
-                        type="FontAwesome"
-                        style={{ color: WHITE }}
-                      />
-                    </TouchableOpacity>
-                    <View style={{ width: 20 }} />
-                    <TouchableOpacity>
-                      <Icon
-                        name="share-alt"
-                        type="FontAwesome"
-                        style={{ color: WHITE }}
-                      />
-                    </TouchableOpacity>
-                    <View style={{ width: 20 }} />
-                    <TouchableOpacity>
-                      <Icon
-                        name="heart"
-                        type="FontAwesome"
-                        style={{ color: "red" }}
-                      />
-                    </TouchableOpacity>
-                    <View style={{ width: 20 }} />
-                  </Left>
-                </View>
-              </ImageBackground>
-
-              <View style={styles.contacterViewStyle}>
-                <Right style={styles.rightTagStyle2}>
-                  <Text style={styles.priceTextStyle}>$4,250,000.00 MXN</Text>
-                </Right>
-                <Left style={styles.leftTagStyle1}>
-                  <Button primary style={styles.contacterButtonStyle}>
-                    <Text style={{ textAlign: "center" }}>Contactar </Text>
-                  </Button>
-                </Left>
-              </View>
-
-              <View style={styles.casaMainViewStyle}>
-                <View style={styles.casaIconViewStyle}>
-                  <Icon name="home" style={styles.casaIconStyle} />
-                </View>
-                <View style={styles.casaTextViewStyle}>
-                  <Text style={{ color: "#979797" }}>Casa</Text>
-                </View>
-                <View style={{ flex: 5 }} />
-              </View>
-
-              <View style={{ height: 40, flexDirection: "row" }}>
-                <Right style={styles.rightTagStyle1}>
-                  <Text style={styles.casaModeranaTextStyle}>Casa Moderna</Text>
-                </Right>
-                <Left style={styles.leftTagStyle2}>
-                  <Button primary style={styles.masInfoButtonStyle}>
-                    <Text style={{ textAlign: "center" }}>
-                      Más Información{" "}
+                    <Text style={{ color: "#979797", marginLeft: "3%" }}>
+                      SKU: 7779451200
                     </Text>
-                  </Button>
-                </Left>
-              </View>
-              <View
-                style={{
-                  justifyContent: "center",
-                  alignItems: "flex-start"
-                }}
-              >
-                <Text style={{ color: "#979797", marginLeft: "3%" }}>
-                  SKU: 7779451200
-                </Text>
-              </View>
+                  </View>
 
-              <View style={{ height: 10 }} />
-              <View style={styles.ubicacionViewStyle}>
-                <Text style={styles.ubicacionTextStyle}>Ubicación</Text>
-              </View>
+                  <View style={{ height: 10 }} />
+                  <View style={styles.ubicacionViewStyle}>
+                    <Text style={styles.ubicacionTextStyle}>Ubicación</Text>
+                  </View>
 
-              <View style={styles.locationMainViewStyle}>
-                <View style={styles.mapIconViewStyle}>
-                  <Icon
-                    name="map-marker"
-                    type="FontAwesome"
-                    style={styles.mapIconStyle}
-                  />
-                </View>
-                <View style={styles.locationTextViewStyle}>
-                  <Text>
-                    Av. Himno Nacional #432 San Luis Potosí, SLP. México 78218
-                  </Text>
-                </View>
+                  <View style={styles.locationMainViewStyle}>
+                    <View style={styles.mapIconViewStyle}>
+                      <Icon
+                        name="map-marker"
+                        type="FontAwesome"
+                        style={styles.mapIconStyle}
+                      />
+                    </View>
+                    <View style={styles.locationTextViewStyle}>
+                      <Text>
+                        Av. Himno Nacional #432 San Luis Potosí, SLP. México
+                        78218
+                      </Text>
+                    </View>
+                  </View>
+                </ScrollView>
               </View>
-            </Card>
+            </View>
           </Modal>
 
           <MapView
@@ -214,9 +233,52 @@ export default class CurrentLocationOfHouseScreen extends Component {
               latitudeDelta: 0.015,
               longitudeDelta: 0.0121
             }}
-          ></MapView>
+          >
+            <Marker
+              onPress={() => {
+                this.setModalVisible(true);
+              }}
+              coordinate={{ latitude: 37.78825, longitude: -122.4324 }}
+              title={"House 1"}
+              description={"House 1 Description"}
+            />
+            <Marker
+              onPress={() => {
+                this.setModalVisible(true);
+              }}
+              coordinate={{ latitude: 37.7886, longitude: -122.436 }}
+              title={"House 2"}
+              description={"House 2 Description"}
+            />
+
+            <Marker
+              onPress={() => {
+                this.setModalVisible(true);
+              }}
+              coordinate={{ latitude: 37.7899, longitude: -122.435 }}
+              title={"House 3"}
+              description={"House 3 Description"}
+            />
+
+            <Marker
+              onPress={() => {
+                this.setModalVisible(true);
+              }}
+              coordinate={{ latitude: 37.7895, longitude: -122.431 }}
+              title={"House 4"}
+              description={"House 4 Description"}
+            />
+            <Marker
+              onPress={() => {
+                this.setModalVisible(true);
+              }}
+              coordinate={{ latitude: 37.7891, longitude: -122.428 }}
+              title={"House 5"}
+              description={"House 5 Description"}
+            />
+          </MapView>
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }
@@ -285,11 +347,16 @@ const styles = StyleSheet.create({
     fontSize: LARGE
   },
   buttonTextStyle: { flex: 3, color: WHITE, fontSize: MEDIUM },
+  container1: {
+    flex: 1,
+    backgroundColor: "transparent"
+  },
   mainViewStyle: {
     height: 390,
-    width: "95%",
+    width: "100%",
     alignSelf: "center",
-    borderRadius: 15
+    borderRadius: 15,
+    backgroundColor: "white"
   },
   imageBackgroundStyle1: {
     height: 150,

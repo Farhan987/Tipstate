@@ -15,7 +15,7 @@ export default class DirectoryScreeen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.titleViewStyle}>
             <Text style={styles.titleStyle}>Directorio</Text>
@@ -33,7 +33,7 @@ export default class DirectoryScreeen extends Component {
           <CustomDirectoryCard logoImage={logo2} />
           <CustomDirectoryCard logoImage={logo3} />
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

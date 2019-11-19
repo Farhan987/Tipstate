@@ -11,7 +11,7 @@ export default class MapScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.buttonsOuterViewStyle}>
             <View style={styles.menuFlexStyle}>
@@ -38,7 +38,7 @@ export default class MapScreen extends Component {
                 <Icon
                   name="search"
                   type="FontAwesome"
-                  style={{ fontSize: LARGE }}
+                  style={{ fontSize: LARGE, fontSize: 18 }}
                 />
                 <Text>Buscar</Text>
               </Button>
@@ -55,7 +55,7 @@ export default class MapScreen extends Component {
             }}
           ></MapView>
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }
@@ -74,16 +74,16 @@ const styles = StyleSheet.create({
     alignItems: "flex-start"
   },
   menuButtonStyle: {
-    height: 50,
-    width: 50,
+    height: 45,
+    width: 45,
     backgroundColor: "#132D43",
     justifyContent: "center",
     alignItems: "flex-start"
   },
-  menu_mapIconStyle: { color: WHITE, fontSize: LARGE },
+  menu_mapIconStyle: { color: WHITE, fontSize: 18 },
   mapButtonStyle: {
-    height: 50,
-    width: 50,
+    height: 45,
+    width: 45,
     backgroundColor: "orange",
     justifyContent: "center",
     alignItems: "flex-end"
@@ -106,7 +106,8 @@ const styles = StyleSheet.create({
   buscarButtonStyle: {
     backgroundColor: "#132D43",
     justifyContent: "center",
-    alignSelf: "flex-end"
+    alignSelf: "flex-end",
+    height: 43
   },
   buttonStyle: {
     width: "80%",

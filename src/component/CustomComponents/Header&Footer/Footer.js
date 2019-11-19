@@ -7,11 +7,19 @@ export default class CustomFooter extends Component {
     return (
       <Footer>
         <FooterTab style={{ backgroundColor: WHITE }}>
-          <Button vertical>
+          <Button
+            vertical
+            onPress={() => this.props.navigation.navigate("InitialScreen")}
+          >
             <Icon name="home" style={styles.footerIconStyle} />
             <Text style={styles.footerTextStyle}>Inicio</Text>
           </Button>
-          <Button vertical>
+          <Button
+            vertical
+            onPress={() =>
+              this.props.navigation.navigate("FavoriteHouseScreen")
+            }
+          >
             <Icon
               name="heart-o"
               type="FontAwesome"
@@ -19,7 +27,12 @@ export default class CustomFooter extends Component {
             />
             <Text style={styles.footerTextStyle}>Favoritos</Text>
           </Button>
-          <Button vertical>
+          <Button
+            vertical
+            onPress={() =>
+              this.props.navigation.navigate("AddNewPropertiesScreen")
+            }
+          >
             <Icon
               name="plus-square-o"
               type="FontAwesome"
@@ -27,15 +40,23 @@ export default class CustomFooter extends Component {
             />
             <Text style={styles.footerTextStyle}>publicar</Text>
           </Button>
-          <Button vertical>
+          <Button
+            vertical
+            onPress={() =>
+              this.props.navigation.navigate("HouseComparisonScreen")
+            }
+          >
             <Icon
-              name="arrows-alt"
+              name="balance-scale"
               type="FontAwesome"
               style={styles.footerIconStyle}
             />
             <Text style={styles.footerTextStyle}>Comparar</Text>
           </Button>
-          <Button vertical>
+          <Button
+            vertical
+            onPress={() => this.props.navigation.navigate("FirstChatScreen")}
+          >
             <Icon
               name="comment-o"
               type="FontAwesome"

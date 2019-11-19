@@ -26,7 +26,7 @@ export default class MyAgentsScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.titleViewStyle}>
             <Text style={styles.titleStyle}>Mis Agentes</Text>
@@ -90,22 +90,24 @@ export default class MyAgentsScreen extends Component {
           </Card>
 
           <View style={{ height: 10 }} />
-          <Card style={styles.cardStyle}>
-            <View style={styles.iconViewStyle}>
-              <TouchableOpacity>
+          <TouchableOpacity
+            onPress={() => this.props.navigation.navigate("AddAgentScreen")}
+          >
+            <Card style={styles.cardStyle}>
+              <View style={styles.iconViewStyle}>
                 <Icon
                   name="plus-square-o"
                   type="FontAwesome"
                   style={styles.addIconStyle}
                 />
-              </TouchableOpacity>
-            </View>
-            <View style={styles.iconTextViewStyle}>
-              <Text style={styles.iconTextStyle}>Agregar Agente</Text>
-            </View>
-          </Card>
+              </View>
+              <View style={styles.iconTextViewStyle}>
+                <Text style={styles.iconTextStyle}>Agregar Agente</Text>
+              </View>
+            </Card>
+          </TouchableOpacity>
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

@@ -4,7 +4,7 @@ import { Icon, Picker, Item } from "native-base";
 import { CUSTOM_FEILD_COLOR, BLACK, WHITE } from "../../theme/colors";
 import { MEDIUM } from "../../font/font";
 
-export default class CustomDropdown extends Component {
+export default class SecondCustomDropdown extends Component {
   constructor(props) {
     super(props);
     this.state = {
@@ -52,7 +52,7 @@ export default class CustomDropdown extends Component {
             {this.props.title ? this.props.title : ""}
           </Text>
         </View>
-        <View style={{ flex: 1 }}>
+        <View style={{ flex: 19 }}>
           <Picker
             placeholder={this.props.title ? this.props.title : ""}
             mode="dropdown"

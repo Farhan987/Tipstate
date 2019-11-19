@@ -12,11 +12,17 @@ export default class ListViewScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.buttonsOuterViewStyle}>
             <View style={styles.map1FlexStyle}>
-              <Button rounded style={styles.map1ButtonStyle}>
+              <Button
+                rounded
+                style={styles.map1ButtonStyle}
+                onPress={() =>
+                  this.props.navigation.navigate("HouseCurrentLocationScreen")
+                }
+              >
                 <Icon
                   name="map-marker"
                   type="FontAwesome"
@@ -35,7 +41,14 @@ export default class ListViewScreen extends Component {
               </Button>
             </View>
             <View style={styles.buscarFlexStyle}>
-              <Button iconLeft rounded style={styles.buscarButtonStyle}>
+              <Button
+                iconLeft
+                rounded
+                style={styles.buscarButtonStyle}
+                onPress={() =>
+                  this.props.navigation.navigate("SearchingFormScreen")
+                }
+              >
                 <Icon
                   name="search"
                   type="FontAwesome"
@@ -56,10 +69,10 @@ export default class ListViewScreen extends Component {
           </View>
 
           {/* Custom List View Card */}
-          <CustomHouseView />
-          <CustomHouseView />
+          <CustomHouseView navigation={this.props.navigation} />
+          <CustomHouseView navigation={this.props.navigation} />
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

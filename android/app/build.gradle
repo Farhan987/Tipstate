@@ -96,6 +96,19 @@ def enableProguardInReleaseBuilds = false
 android {
     compileSdkVersion rootProject.ext.compileSdkVersion
     buildToolsVersion rootProject.ext.buildToolsVersion
+    signingConfigs {
+    release {
+    storeFile file(MYAPP_RELEASE_STORE_FILE)
+    storePassword MYAPP_RELEASE_STORE_PASSWORD
+    keyAlias MYAPP_RELEASE_KEY_ALIAS
+    keyPassword MYAPP_RELEASE_KEY_PASSWORD
+    }
+    }
+    buildTypes {
+    release {
+        signingConfig signingConfigs.release
+    }
+   }
 
     defaultConfig {
         applicationId "com.tipstate"
@@ -135,6 +148,9 @@ android {
 }
 
 dependencies {
+    implementation project(':react-native-screens')
+    implementation project(':react-native-gesture-handler')
+    implementation project(':react-native-reanimated')
     implementation project(':react-native-svg')
     implementation project(':react-native-image-crop-picker')
     implementation project(':react-native-maps')

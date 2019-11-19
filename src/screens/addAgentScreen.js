@@ -72,7 +72,7 @@ export default class AddAgentScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           {/* titleView */}
           <View style={styles.titleViewStyle}>
@@ -212,7 +212,7 @@ export default class AddAgentScreen extends Component {
           </View>
           <View style={{ height: 10 }} />
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

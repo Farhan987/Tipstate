@@ -16,7 +16,7 @@ export default class ChatScreenOne extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.titleViewStyle}>
             <Text style={styles.titleStyle}>Mensajes</Text>
@@ -31,11 +31,20 @@ export default class ChatScreenOne extends Component {
           </View>
 
           <View style={{ height: 10 }} />
-          <CustomChatCard profileImage={pic1} />
-          <CustomChatCard profileImage={pic2} />
-          <CustomChatCard profileImage={pic3} />
+          <CustomChatCard
+            profileImage={pic1}
+            navigation={this.props.navigation}
+          />
+          <CustomChatCard
+            profileImage={pic2}
+            navigation={this.props.navigation}
+          />
+          <CustomChatCard
+            profileImage={pic3}
+            navigation={this.props.navigation}
+          />
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

@@ -12,12 +12,18 @@ export default class MyPropertiesListScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <CustomMyPropertyPageTitle />
           <View style={styles.buttonsOuterViewStyle}>
             <View style={styles.map1FlexStyle}>
-              <Button rounded style={styles.map1ButtonStyle}>
+              <Button
+                rounded
+                style={styles.map1ButtonStyle}
+                onPress={() =>
+                  this.props.navigation.navigate("PropertiesMapViewScreen")
+                }
+              >
                 <Icon
                   name="map-marker"
                   type="FontAwesome"
@@ -27,7 +33,14 @@ export default class MyPropertiesListScreen extends Component {
             </View>
             <View style={{ flex: 1 }} />
             <View style={styles.buscarFlexStyle}>
-              <Button iconLeft rounded style={styles.buscarButtonStyle}>
+              <Button
+                iconLeft
+                rounded
+                style={styles.buscarButtonStyle}
+                onPress={() =>
+                  this.props.navigation.navigate("SearchingFormScreen")
+                }
+              >
                 <Icon
                   name="search"
                   type="FontAwesome"
@@ -39,10 +52,10 @@ export default class MyPropertiesListScreen extends Component {
           </View>
 
           {/* Custom List View Card */}
-          <SecondCustomHouseView />
-          <SecondCustomHouseView />
+          <SecondCustomHouseView navigation={this.props.navigation} />
+          <SecondCustomHouseView navigation={this.props.navigation} />
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

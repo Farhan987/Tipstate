@@ -4,9 +4,10 @@ import {
   View,
   TouchableOpacity,
   Image,
-  TextInput
+  TextInput,
+  Switch
 } from "react-native";
-import { Container, Content, Text, CheckBox, Body } from "native-base";
+import { Container, Content, Text, CheckBox, Body, Button } from "native-base";
 import ImagePicker from "react-native-image-crop-picker";
 import CustomHeader from "../component/CustomComponents/Header&Footer/Header";
 import CustomFooter from "../component/CustomComponents/Header&Footer/Footer";
@@ -23,7 +24,7 @@ export default class MyParametersScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           {/* titleView */}
           <View style={styles.titleViewStyle}>
@@ -41,26 +42,28 @@ export default class MyParametersScreen extends Component {
           <View style={{ height: 5 }} />
           <View style={styles.mainCheckBoxViewStyle}>
             <View style={styles.checkBoxViewStyle}>
-              <CheckBox checked={true} style={styles.checkBoxStyle} />
-              <Body>
+              <View style={styles.checkBoxInnerViewStyle}>
+                <CheckBox checked={true} style={styles.checkBoxStyle} />
+              </View>
+              <View style={styles.checkBoxTextViewStyle}>
                 <Text>Renta</Text>
-              </Body>
+              </View>
             </View>
 
             <View style={styles.checkBoxViewStyle}>
-              <CheckBox
-                checked={true}
-                style={[
-                  styles.checkBoxStyle,
-                  { backgroundColor: "orange", borderColor: "#F6F6F6" }
-                ]}
-              />
-              <Body>
-                <Text>Venta</Text>
-              </Body>
+              <View style={styles.checkBoxInnerViewStyle}>
+                <CheckBox
+                  checked={true}
+                  style={[
+                    styles.checkBoxStyle,
+                    { backgroundColor: "orange", borderColor: "#F6F6F6" }
+                  ]}
+                />
+              </View>
+              <View style={styles.checkBoxTextViewStyle}>
+                <Text>Renta</Text>
+              </View>
             </View>
-
-            <View style={styles.checkBoxViewStyle2} />
           </View>
 
           <View style={{ height: 10 }} />
@@ -73,71 +76,77 @@ export default class MyParametersScreen extends Component {
           <View style={{ height: 5 }} />
           <View style={styles.mainCheckBoxViewStyle}>
             <View style={styles.checkBoxViewStyle}>
-              <CheckBox checked={true} style={styles.checkBoxStyle} />
-              <Body>
+              <View style={styles.checkBoxInnerViewStyle}>
+                <CheckBox checked={true} style={styles.checkBoxStyle} />
+              </View>
+              <View style={styles.checkBoxTextViewStyle}>
                 <Text>Casa</Text>
-              </Body>
+              </View>
             </View>
 
             <View style={styles.checkBoxViewStyle}>
-              <CheckBox checked={true} style={styles.checkBoxStyle} />
-              <View style={{ width: 20 }}></View>
-              <Body>
+              <View style={styles.checkBoxInnerViewStyle}>
+                <CheckBox checked={true} style={styles.checkBoxStyle} />
+              </View>
+              <View style={styles.checkBoxTextViewStyle}>
                 <Text>Departmento</Text>
-              </Body>
+              </View>
             </View>
-
-            <View style={styles.checkBoxViewStyle2} />
           </View>
 
           <View style={{ height: 5 }} />
           <View style={styles.mainCheckBoxViewStyle}>
             <View style={styles.checkBoxViewStyle}>
-              <CheckBox checked={true} style={styles.checkBoxStyle} />
-              <Body>
+              <View style={styles.checkBoxInnerViewStyle}>
+                <CheckBox checked={true} style={styles.checkBoxStyle} />
+              </View>
+              <View style={styles.checkBoxTextViewStyle}>
                 <Text>Oficina</Text>
-              </Body>
+              </View>
             </View>
 
             <View style={styles.checkBoxViewStyle}>
-              <CheckBox checked={true} style={styles.checkBoxStyle} />
-              <Body>
+              <View style={styles.checkBoxInnerViewStyle}>
+                <CheckBox checked={true} style={styles.checkBoxStyle} />
+              </View>
+              <View style={styles.checkBoxTextViewStyle}>
                 <Text>Rancho</Text>
-              </Body>
+              </View>
             </View>
-
-            <View style={styles.checkBoxViewStyle2} />
           </View>
 
           <View style={{ height: 5 }} />
           <View style={styles.mainCheckBoxViewStyle}>
             <View style={styles.checkBoxViewStyle}>
-              <CheckBox checked={true} style={styles.checkBoxStyle} />
-              <Body>
+              <View style={styles.checkBoxInnerViewStyle}>
+                <CheckBox checked={true} style={styles.checkBoxStyle} />
+              </View>
+              <View style={styles.checkBoxTextViewStyle}>
                 <Text>Terreno</Text>
-              </Body>
+              </View>
             </View>
 
             <View style={styles.checkBoxViewStyle}>
-              <CheckBox checked={true} style={styles.checkBoxStyle} />
-              <View style={{ width: 15 }}></View>
-              <Body>
+              <View style={styles.checkBoxInnerViewStyle}>
+                <CheckBox checked={true} style={styles.checkBoxStyle} />
+              </View>
+              <View style={styles.checkBoxTextViewStyle}>
                 <Text>Local/Bodega</Text>
-              </Body>
+              </View>
             </View>
-
-            <View style={styles.checkBoxViewStyle2} />
           </View>
 
           <View style={styles.mainCheckBoxViewStyle}>
             <View style={styles.checkBoxViewStyle}>
-              <CheckBox checked={true} style={styles.checkBoxStyle} />
-              <Body>
+              <View style={styles.checkBoxInnerViewStyle}>
+                <CheckBox checked={true} style={styles.checkBoxStyle} />
+              </View>
+              <View style={styles.checkBoxTextViewStyle}>
                 <Text>Nave Industrial</Text>
-              </Body>
+              </View>
             </View>
 
-            <View style={styles.checkBoxViewStyle}></View>
+            <View style={styles.checkBoxViewStyle} />
           </View>
 
           <View style={{ height: 10 }} />
@@ -150,56 +159,178 @@ export default class MyParametersScreen extends Component {
           <View style={{ height: 5 }} />
           <View style={styles.mainCheckBoxViewStyle}>
             <View style={styles.checkBoxViewStyle}>
-              <CheckBox checked={true} style={styles.checkBoxStyle} />
-              <Body>
-                <Text>mañana</Text>
-              </Body>
-            </View>
-
-            <View style={styles.checkBoxViewStyle}>
-              <CheckBox checked={true} style={styles.checkBoxStyle} />
-              <View style={{ width: 15 }}></View>
-              <Body>
-                <Text>Tarde</Text>
-              </Body>
-            </View>
-
-            <View style={styles.checkBoxViewStyle2} />
-          </View>
-
-          <View style={styles.mainCheckBoxViewStyle}>
-            <View style={styles.checkBoxViewStyle}>
-              <View
-                style={{
-                  flex: 1,
-                  backgroundColor: "red",
-                  justifyContent: "center",
-                  alignItems: "flex-start"
-                }}
-              >
+              <View style={styles.checkBoxInnerViewStyle}>
                 <CheckBox checked={true} style={styles.checkBoxStyle} />
               </View>
-              <View
-                style={{
-                  flex: 2,
-                  backgroundColor: "yellow"
-                }}
-              >
-                <Body
-                  style={{
-                    justifyContent: "center",
-                    alignItems: "center"
-                  }}
-                >
-                  <Text style={{ alignSelf: "flex-start" }}>Noche</Text>
-                </Body>
+              <View style={styles.checkBoxTextViewStyle}>
+                <Text>mañana</Text>
               </View>
             </View>
 
-            <View style={styles.checkBoxViewStyle}></View>
+            <View style={styles.checkBoxViewStyle}>
+              <View style={styles.checkBoxInnerViewStyle}>
+                <CheckBox checked={true} style={styles.checkBoxStyle} />
+              </View>
+              <View style={styles.checkBoxTextViewStyle}>
+                <Text>Tarde</Text>
+              </View>
+            </View>
+
+            {/* <View style={styles.checkBoxViewStyle2} /> */}
+          </View>
+          <View style={styles.mainCheckBoxViewStyle}>
+            <View style={styles.checkBoxViewStyle}>
+              <View style={styles.checkBoxInnerViewStyle}>
+                <CheckBox checked={true} style={styles.checkBoxStyle} />
+              </View>
+              <View style={styles.checkBoxTextViewStyle}>
+                <Text>Noche</Text>
+              </View>
+            </View>
+
+            <View style={styles.checkBoxViewStyle} />
+          </View>
+
+          {/* halfTextInputs */}
+          <View style={{ height: 10 }} />
+          <View>
+            <Text style={{ marginLeft: "5%", fontWeight: "bold" }}>
+              Rango de Precios
+            </Text>
+          </View>
+          <View>
+            <View>
+              <Text
+                style={{ marginLeft: "5%", color: "#959595", paddingTop: 5 }}
+              >
+                Venta
+              </Text>
+            </View>
+            <View style={styles.halfTextInputViewStyle}>
+              <View style={styles.halfTextInputStyle}>
+                <CustomTextInput width="85%" placeholder="Desde" />
+              </View>
+
+              <View style={styles.halfTextInputStyle}>
+                <CustomTextInput width="85%" placeholder="Hasta" />
+              </View>
+            </View>
+          </View>
+
+          <View>
+            <View>
+              <Text
+                style={{ marginLeft: "5%", color: "#959595", paddingTop: 5 }}
+              >
+                Renta
+              </Text>
+            </View>
+            <View style={styles.halfTextInputViewStyle}>
+              <View style={styles.halfTextInputStyle}>
+                <CustomTextInput width="85%" placeholder="Desde" />
+              </View>
+
+              <View style={styles.halfTextInputStyle}>
+                <CustomTextInput width="85%" placeholder="Hasta" />
+              </View>
+            </View>
+          </View>
+
+          {/* switch */}
+          <View style={{ height: 10 }} />
+          <View>
+            <View>
+              <Text style={{ marginLeft: "5%", fontWeight: "bold" }}>
+                Compartir comisión con otra inmobiliara
+              </Text>
+            </View>
+
+            <View style={styles.switchMainViewStyle}>
+              <View style={styles.switchStyle}>
+                <Switch color="orange" />
+              </View>
+              <View style={styles.switchTextStyle}>
+                {/* <Text>Mostrar Ubicación Exacta</Text> */}
+              </View>
+            </View>
+          </View>
+
+          <View>
+            <View>
+              <Text
+                style={{ marginLeft: "5%", color: "#959595", paddingTop: 5 }}
+              >
+                Compartir promedio cobrada sobre el valor de:
+              </Text>
+            </View>
+            <View style={styles.halfTextInputViewStyle}>
+              <View style={styles.halfTextInputStyle}>
+                <CustomTextInput width="85%" placeholder="Renta" />
+              </View>
+
+              <View style={styles.halfTextInputStyle}>
+                <CustomTextInput width="85%" placeholder="Venta" />
+              </View>
+            </View>
+          </View>
+
+          <View style={{ height: 10 }} />
+          <View>
+            <View>
+              <Text style={{ marginLeft: "5%", fontWeight: "bold" }}>
+                Aceptar Créditos
+              </Text>
+            </View>
+
+            <View style={styles.mainCheckBoxViewStyle}>
+              <View style={styles.checkBoxViewStyle}>
+                <View style={styles.checkBoxInnerViewStyle}>
+                  <CheckBox checked={true} style={styles.checkBoxStyle} />
+                </View>
+                <View style={styles.checkBoxTextViewStyle}>
+                  <Text>Bancos</Text>
+                </View>
+              </View>
+
+              <View style={styles.checkBoxViewStyle}>
+                <View style={styles.checkBoxInnerViewStyle}>
+                  <CheckBox checked={true} style={styles.checkBoxStyle} />
+                </View>
+                <View style={styles.checkBoxTextViewStyle}>
+                  <Text>INFONAVIT</Text>
+                </View>
+              </View>
+            </View>
+
+            <View style={styles.mainCheckBoxViewStyle}>
+              <View style={styles.checkBoxViewStyle}>
+                <View style={styles.checkBoxInnerViewStyle}>
+                  <CheckBox checked={true} style={styles.checkBoxStyle} />
+                </View>
+                <View style={styles.checkBoxTextViewStyle}>
+                  <Text>IMSS</Text>
+                </View>
+              </View>
+
+              <View style={styles.checkBoxViewStyle}>
+                <View style={styles.checkBoxInnerViewStyle}>
+                  <CheckBox checked={true} style={styles.checkBoxStyle} />
+                </View>
+                <View style={styles.checkBoxTextViewStyle}>
+                  <Text>Otros</Text>
+                </View>
+              </View>
+            </View>
+          </View>
+
+          <View style={{ height: 30 }} />
+          <View style={styles.guardarButtonViewStyle}>
+            <Button primary style={styles.guardarButtonStyle}>
+              <Text style={styles.guardarButtonTextStyle}>Guardar</Text>
+            </Button>
           </View>
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }
@@ -243,5 +374,51 @@ const styles = StyleSheet.create({
     borderRadius: 5,
     borderColor: "#F6F6F6",
     borderWidth: 1
+  },
+  checkBoxInnerViewStyle: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-start"
+  },
+  checkBoxTextViewStyle: {
+    flex: 3,
+    justifyContent: "center",
+    alignItems: "flex-start"
+  },
+  halfTextInputViewStyle: { flexDirection: "row", height: 50 },
+  halfTextInputStyle: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  switchMainViewStyle: {
+    height: 40,
+    width: "90%",
+    alignSelf: "center",
+    flexDirection: "row"
+  },
+  switchStyle: {
+    flex: 1,
+    justifyContent: "center",
+    alignItems: "flex-start"
+  },
+
+  guardarButtonViewStyle: {
+    height: 60,
+    justifyContent: "center",
+    alignItems: "center"
+  },
+  guardarButtonStyle: {
+    height: 35,
+    width: 140,
+    backgroundColor: "#EEA823",
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 5
+  },
+  guardarButtonTextStyle: {
+    textAlign: "center",
+    color: "white",
+    fontSize: 16
   }
 });

@@ -34,6 +34,7 @@ class CustomButton extends Component {
 
       <View style={styles.buttonViewStyle}>
         <TouchableOpacity
+          onPress={this.props.onPress}
           style={[
             styles.buttonStyle,
             {
@@ -79,5 +80,5 @@ const styles = StyleSheet.create({
     color: WHITE,
     fontSize: LARGE
   },
-  buttonTextStyle: { flex: 5, color: WHITE, fontSize: MEDIUM }
+  buttonTextStyle: { flex: 6, color: WHITE, fontSize: 14 }
 });

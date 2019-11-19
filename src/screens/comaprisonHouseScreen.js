@@ -12,7 +12,7 @@ export default class HouseCamparisonScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           {/* title */}
           <View style={styles.titleViewStyle}>
@@ -173,6 +173,7 @@ export default class HouseCamparisonScreen extends Component {
             leftSideText="Habitaciones"
             rightIconName="bed"
             leftIconName="bed"
+            iconfontSize={22}
           />
           <CustomScalingView
             backgroundColor="#F6F6F6"
@@ -186,6 +187,7 @@ export default class HouseCamparisonScreen extends Component {
             leftSideText="Estacionamientos"
             rightIconName="car"
             leftIconName="car"
+            iconfontSize={22}
           />
           <CustomScalingView rightSideText="2" leftSideText="2" />
 
@@ -262,7 +264,7 @@ export default class HouseCamparisonScreen extends Component {
 
           <View style={{ height: 10 }} />
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }
@@ -313,7 +315,7 @@ const styles = StyleSheet.create({
   imageViewStyle: {
     height: 150,
     justifyContent: "center",
-    alignItems: "center"
+    alignItems: "flex-start"
   },
   imageStyle: { width: "90%", height: "90%", borderRadius: 10 },
   ventaCasaOuterViewStyle: {

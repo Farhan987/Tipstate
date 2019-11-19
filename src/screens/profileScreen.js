@@ -18,7 +18,7 @@ export default class ProfileScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.titleViewStyle}>
             <Text style={styles.titleStyle}>Mi Perfil</Text>
@@ -50,41 +50,41 @@ export default class ProfileScreen extends Component {
             <Text style={styles.emailStyle}>abc@gmail.com</Text>
           </View>
           <View style={styles.stericViewStyle}>
-            <TouchableOpacity style={styles.stericButtonStyle}>
+            <View style={styles.stericButtonStyle}>
               <Icon
                 name="star"
                 type="FontAwesome"
                 style={styles.filledStericIconStyle}
               />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.stericButtonStyle}>
+            </View>
+            <View style={styles.stericButtonStyle}>
               <Icon
                 name="star"
                 type="FontAwesome"
                 style={styles.filledStericIconStyle}
               />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.stericButtonStyle}>
+            </View>
+            <View style={styles.stericButtonStyle}>
               <Icon
                 name="star"
                 type="FontAwesome"
                 style={styles.filledStericIconStyle}
               />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.stericButtonStyle}>
+            </View>
+            <View style={styles.stericButtonStyle}>
               <Icon
                 name="star"
                 type="FontAwesome"
                 style={styles.filledStericIconStyle}
               />
-            </TouchableOpacity>
-            <TouchableOpacity style={styles.stericButtonStyle}>
+            </View>
+            <View style={styles.stericButtonStyle}>
               <Icon
                 name="star-o"
                 type="FontAwesome"
                 style={styles.unfillStericIconStyle}
               />
-            </TouchableOpacity>
+            </View>
           </View>
 
           <View style={{ height: 20 }} />
@@ -96,7 +96,10 @@ export default class ProfileScreen extends Component {
             }}
           >
             <View style={styles.buttonViewStyle}>
-              <TouchableOpacity style={styles.leftButtonStyle}>
+              <TouchableOpacity
+                style={styles.leftButtonStyle}
+                onPress={() => this.props.navigation.navigate("CalanderScreen")}
+              >
                 <Icon
                   name="calendar"
                   type="FontAwesome"
@@ -106,7 +109,12 @@ export default class ProfileScreen extends Component {
               </TouchableOpacity>
             </View>
             <View style={styles.buttonViewStyle}>
-              <TouchableOpacity style={styles.leftButtonStyle}>
+              <TouchableOpacity
+                style={styles.leftButtonStyle}
+                onPress={() =>
+                  this.props.navigation.navigate("SearchLocationScreen")
+                }
+              >
                 <Icon
                   name="search"
                   type="FontAwesome"
@@ -124,7 +132,12 @@ export default class ProfileScreen extends Component {
             }}
           >
             <View style={styles.buttonViewStyle}>
-              <TouchableOpacity style={styles.leftButtonStyle}>
+              <TouchableOpacity
+                style={styles.leftButtonStyle}
+                onPress={() =>
+                  this.props.navigation.navigate("EvaluationScreen")
+                }
+              >
                 <Icon
                   name="star-o"
                   type="FontAwesome"
@@ -134,7 +147,12 @@ export default class ProfileScreen extends Component {
               </TouchableOpacity>
             </View>
             <View style={styles.buttonViewStyle}>
-              <TouchableOpacity style={styles.leftButtonStyle}>
+              <TouchableOpacity
+                style={styles.leftButtonStyle}
+                onPress={() =>
+                  this.props.navigation.navigate("DirectoryScreen")
+                }
+              >
                 <Icon
                   name="desktop"
                   type="FontAwesome"
@@ -167,8 +185,18 @@ export default class ProfileScreen extends Component {
           />
 
           <View style={{ height: 25 }} />
-          <CustomButton buttonText=" Mis Propiedades" IconName="home" />
-          <CustomButton buttonText="Mis Estadisticas" IconName="bar-chart" />
+          <CustomButton
+            buttonText=" Mis Propiedades"
+            IconName="home"
+            onPress={() =>
+              this.props.navigation.navigate("PropertiesMapViewScreen")
+            }
+          />
+          <CustomButton
+            onPress={() => this.props.navigation.navigate("StatisticsScreen")}
+            buttonText="Mis Estadisticas"
+            IconName="bar-chart"
+          />
 
           <View style={{ height: 20 }} />
           <View
@@ -192,9 +220,17 @@ export default class ProfileScreen extends Component {
           />
 
           <View style={{ height: 25 }} />
-          <CustomButton buttonText="Mis Parametros" IconName="sliders" />
+          <CustomButton
+            buttonText="Mis Parametros"
+            IconName="sliders"
+            onPress={() => this.props.navigation.navigate("ParameterScreen")}
+          />
 
-          <CustomButton buttonText="Mis Agentes" IconName="users" />
+          <CustomButton
+            buttonText="Mis Agentes"
+            IconName="users"
+            onPress={() => this.props.navigation.navigate("AgentScreen")}
+          />
 
           <View style={{ height: 40 }} />
           <View
@@ -224,29 +260,29 @@ export default class ProfileScreen extends Component {
               alignSelf: "center"
             }}
           >
-            <TouchableOpacity>
+            <View>
               <Text style={{ color: BLACK, fontSize: MEDIUM, paddingTop: 5 }}>
                 Cambiar Contrasena
               </Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
+            </View>
+            <View>
               <Text style={{ color: BLACK, fontSize: MEDIUM, paddingTop: 5 }}>
                 Reportar un Problema
               </Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
+            </View>
+            <View>
               <Text style={{ color: BLACK, fontSize: MEDIUM, paddingTop: 5 }}>
                 Eliminar Cuenta
               </Text>
-            </TouchableOpacity>
-            <TouchableOpacity>
+            </View>
+            <View>
               <Text style={{ color: "red", fontSize: MEDIUM, paddingTop: 8 }}>
                 Cerrar Session
               </Text>
-            </TouchableOpacity>
+            </View>
           </View>
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

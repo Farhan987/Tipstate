@@ -12,7 +12,7 @@ export default class FavoriteHouseScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.titleViewStyle}>
             <Text style={styles.titleStyle}>Mis Favoritos</Text>
@@ -27,10 +27,10 @@ export default class FavoriteHouseScreen extends Component {
           </View>
 
           {/* Custom List View Card */}
-          <CustomHouseView />
-          <CustomHouseView />
+          <CustomHouseView navigation={this.props.navigation} />
+          <CustomHouseView navigation={this.props.navigation} />
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

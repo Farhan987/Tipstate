@@ -1,8 +1,8 @@
 import React, { Component } from "react";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
-import { Text, Icon, Card } from "native-base";
-import { BLACK, WHITE } from "../../../theme/colors";
-import { MEDIUM, SMALL } from "../../../font/font";
+import { StyleSheet, View } from "react-native";
+import { Text, Icon } from "native-base";
+import { WHITE } from "../../../theme/colors";
+import { SMALL } from "../../../font/font";
 
 export default class CustomStatisticsView extends Component {
   render() {
@@ -12,7 +12,10 @@ export default class CustomStatisticsView extends Component {
           <Icon
             name={this.props.IconName ? this.props.IconName : "home"}
             type="FontAwesome"
-            style={styles.iconStyle}
+            style={[
+              styles.iconStyle,
+              { fontSize: this.props.fontSize ? this.props.fontSize : 50 }
+            ]}
           />
         </View>
         <View style={styles.textsViewStyle}>
@@ -38,7 +41,6 @@ const styles = StyleSheet.create({
   iconStyle: {
     textAlign: "center",
     color: WHITE,
-    fontSize: 50,
     color: "orange"
   },
   textsViewStyle: {

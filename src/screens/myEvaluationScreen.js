@@ -11,11 +11,11 @@ export default class MyEvaluationScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           {/* title */}
           <View style={styles.titleViewStyle}>
-            <Text style={styles.titleStyle}>Mis Agentes</Text>
+            <Text style={styles.titleStyle}>Mis Evaluaciones</Text>
           </View>
           {/* card */}
           <View style={{ height: 15 }} />
@@ -34,41 +34,41 @@ export default class MyEvaluationScreen extends Component {
                 <Text style={styles.smallTextStyle}>Cierres: 10</Text>
 
                 <View style={styles.stericViewStyle}>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star"
                       type="FontAwesome"
                       style={styles.filledStericIconStyle}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  </View>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star"
                       type="FontAwesome"
                       style={styles.filledStericIconStyle}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  </View>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star"
                       type="FontAwesome"
                       style={styles.filledStericIconStyle}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  </View>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star"
                       type="FontAwesome"
                       style={styles.filledStericIconStyle}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  </View>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star-o"
                       type="FontAwesome"
                       style={styles.unfillStericIconStyle}
                     />
-                  </TouchableOpacity>
+                  </View>
                 </View>
 
                 <Text style={styles.smallTextStyle}>2 Evaluaciones</Text>
@@ -84,41 +84,41 @@ export default class MyEvaluationScreen extends Component {
               <View style={styles.textsViewStyle}>
                 <Text style={styles.neuronTextStyle}>Alvaro Mashiro</Text>
                 <View style={styles.stericViewStyle}>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star"
                       type="FontAwesome"
                       style={styles.filledStericIconStyle1}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  </View>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star"
                       type="FontAwesome"
                       style={styles.filledStericIconStyle1}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  </View>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star"
                       type="FontAwesome"
                       style={styles.filledStericIconStyle1}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  </View>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star"
                       type="FontAwesome"
                       style={styles.filledStericIconStyle1}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  </View>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star-o"
                       type="FontAwesome"
                       style={styles.unfillStericIconStyle}
                     />
-                  </TouchableOpacity>
+                  </View>
                 </View>
                 <Text style={styles.smallTextStyle}>alvaro@gmail.com</Text>
                 <Text style={styles.smallTextStyle}>Usuario: 05/06/2017</Text>
@@ -128,7 +128,7 @@ export default class MyEvaluationScreen extends Component {
             <View style={styles.imageViewStyle}>
               <Button primary style={styles.vermásButtonStyle}>
                 <Text style={{ textAlign: "center", color: WHITE }}>
-                  Ver más{" "}
+                  Ver más
                 </Text>
               </Button>
             </View>
@@ -142,41 +142,41 @@ export default class MyEvaluationScreen extends Component {
               <View style={styles.textsViewStyle}>
                 <Text style={styles.neuronTextStyle}>Cobito Covarrubias</Text>
                 <View style={styles.stericViewStyle}>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star"
                       type="FontAwesome"
                       style={styles.filledStericIconStyle1}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  </View>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star"
                       type="FontAwesome"
                       style={styles.filledStericIconStyle1}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  </View>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star"
                       type="FontAwesome"
                       style={styles.filledStericIconStyle1}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  </View>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star"
                       type="FontAwesome"
                       style={styles.filledStericIconStyle1}
                     />
-                  </TouchableOpacity>
-                  <TouchableOpacity style={styles.stericButtonStyle}>
+                  </View>
+                  <View style={styles.stericButtonStyle}>
                     <Icon
                       name="star-o"
                       type="FontAwesome"
                       style={styles.unfillStericIconStyle}
                     />
-                  </TouchableOpacity>
+                  </View>
                 </View>
                 <Text style={styles.smallTextStyle}>cobo@gmail.com</Text>
                 <Text style={styles.smallTextStyle}>Usuario: 08/08/2018</Text>
@@ -199,7 +199,7 @@ export default class MyEvaluationScreen extends Component {
           <CustomRatingLine text="Empatia" />
           <CustomRatingLine text="Actitud en General" />
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

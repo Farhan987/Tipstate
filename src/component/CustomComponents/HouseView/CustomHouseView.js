@@ -29,7 +29,7 @@ export default class CustomHouseView extends Component {
               <Left style={styles.leftTagStyle1}>
                 <TouchableOpacity>
                   <Icon
-                    name="gavel"
+                    name="balance-scale"
                     type="FontAwesome"
                     style={{ color: WHITE }}
                   />
@@ -81,7 +81,13 @@ export default class CustomHouseView extends Component {
               <Text style={styles.casaModeranaTextStyle}>Casa Moderna</Text>
             </Right>
             <Left style={styles.leftTagStyle2}>
-              <Button primary style={styles.masInfoButtonStyle}>
+              <Button
+                primary
+                style={styles.masInfoButtonStyle}
+                onPress={() =>
+                  this.props.navigation.navigate("HouseDetailScreen")
+                }
+              >
                 <Text style={{ textAlign: "center" }}>Más Información </Text>
               </Button>
             </Left>

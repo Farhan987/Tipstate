@@ -1,8 +1,7 @@
 import React, { Component } from "react";
-import { StyleSheet, View, Text, TouchableOpacity } from "react-native";
+import { StyleSheet, View, Text } from "react-native";
 import { Icon } from "native-base";
 import { BLACK } from "../../../theme/colors";
-import { MEDIUM, LARGE, SMALL } from "../../../font/font";
 
 export default class CustomRatingLine extends Component {
   render() {
@@ -16,41 +15,41 @@ export default class CustomRatingLine extends Component {
           <View style={{ flex: 1.2 }}>
             <View style={styles.stericsViewStyle}>
               <View style={styles.stericViewStyle1}>
-                <TouchableOpacity style={styles.stericButtonStyle1}>
+                <View style={styles.stericButtonStyle1}>
                   <Icon
                     name="star"
                     type="FontAwesome"
                     style={styles.filledStericIconStyle1}
                   />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.stericButtonStyle1}>
+                </View>
+                <View style={styles.stericButtonStyle1}>
                   <Icon
                     name="star"
                     type="FontAwesome"
                     style={styles.filledStericIconStyle1}
                   />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.stericButtonStyle1}>
+                </View>
+                <View style={styles.stericButtonStyle1}>
                   <Icon
                     name="star"
                     type="FontAwesome"
                     style={styles.filledStericIconStyle1}
                   />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.stericButtonStyle1}>
+                </View>
+                <View style={styles.stericButtonStyle1}>
                   <Icon
                     name="star"
                     type="FontAwesome"
                     style={styles.filledStericIconStyle1}
                   />
-                </TouchableOpacity>
-                <TouchableOpacity style={styles.stericButtonStyle1}>
+                </View>
+                <View style={styles.stericButtonStyle1}>
                   <Icon
                     name="star-o"
                     type="FontAwesome"
                     style={styles.unfillStericIconStyle}
                   />
-                </TouchableOpacity>
+                </View>
               </View>
             </View>
           </View>

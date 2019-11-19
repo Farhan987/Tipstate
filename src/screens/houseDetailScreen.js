@@ -28,7 +28,7 @@ export default class HouseDetailScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.mainViewStyle}>
             <ImageBackground
@@ -351,10 +351,10 @@ export default class HouseDetailScreen extends Component {
           </View>
 
           {/* Custom List View Card */}
-          <CustomHouseView />
-          <CustomHouseView />
+          <CustomHouseView navigation={this.props.navigation} />
+          <CustomHouseView navigation={this.props.navigation} />
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

@@ -25,7 +25,12 @@ export default class CustomNameAndIconView extends Component {
                   this.props.leftIconName ? this.props.leftIconName : "home"
                 }
                 type="FontAwesome"
-                style={{ color: "orange" }}
+                style={{
+                  color: "orange",
+                  fontSize: this.props.iconfontSize
+                    ? this.props.iconfontSize
+                    : 25
+                }}
               />
             </View>
 
@@ -42,7 +47,12 @@ export default class CustomNameAndIconView extends Component {
                   this.props.rightIconName ? this.props.rightIconName : "home"
                 }
                 type="FontAwesome"
-                style={{ color: "orange" }}
+                style={{
+                  color: "orange",
+                  fontSize: this.props.iconfontSize
+                    ? this.props.iconfontSize
+                    : 25
+                }}
               />
             </View>
 
@@ -58,7 +68,7 @@ export default class CustomNameAndIconView extends Component {
 
 const styles = StyleSheet.create({
   accessoriesOuterViewStyle: {
-    height: 35,
+    height: 40,
     width: "90%",
     alignSelf: "center",
     flexDirection: "row"

@@ -11,7 +11,7 @@ export default class SearchLocationScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.titleViewStyle}>
             <Text style={styles.titleStyle}>Mis Busquedas</Text>
@@ -34,7 +34,7 @@ export default class SearchLocationScreen extends Component {
           <CustomSearchCard />
           <CustomSearchCard />
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

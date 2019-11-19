@@ -1,21 +1,13 @@
 import React, { Component } from "react";
-import { StyleSheet, View, TouchableOpacity, Dimensions } from "react-native";
-import { Container, Content, Text, Item, Icon, Input, Card } from "native-base";
+import { StyleSheet, View, Dimensions } from "react-native";
+import { Container, Content, Text } from "native-base";
 import CustomHeader from "../component/CustomComponents/Header&Footer/Header";
 import CustomFooter from "../component/CustomComponents/Header&Footer/Footer";
 import { BLACK } from "../theme/colors";
 import { MEDIUM } from "../font/font";
-import CustomSearchCard from "../component/CustomComponents/SearchedCardView/CustomSearchedCard";
 import CustomStatisticsView from "../component/CustomComponents/statsView/CustomStatisticView";
 
-import {
-  LineChart,
-  BarChart,
-  PieChart,
-  ProgressChart,
-  ContributionGraph,
-  StackedBarChart
-} from "react-native-chart-kit";
+import { LineChart } from "react-native-chart-kit";
 
 export default class MyStatisticsScreen extends Component {
   constructor() {
@@ -32,7 +24,7 @@ export default class MyStatisticsScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.titleViewStyle}>
             <Text style={styles.titleStyle}>Mis Estadísticas</Text>
@@ -46,8 +38,8 @@ export default class MyStatisticsScreen extends Component {
           <View style={{ height: 15 }} />
           <CustomStatisticsView />
           <CustomStatisticsView />
-          <CustomStatisticsView IconName="bar-chart" />
-          <CustomStatisticsView IconName="calendar" />
+          <CustomStatisticsView IconName="bar-chart" fontSize={40} />
+          <CustomStatisticsView IconName="calendar" fontSize={40} />
 
           <View style={{ height: 15 }} />
           <View style={styles.textViewStyle}>
@@ -91,12 +83,12 @@ export default class MyStatisticsScreen extends Component {
               yAxisLabel={"$"}
               yAxisSuffix={"k"}
               chartConfig={{
-                backgroundColor: "#F6F6F6F",
-                backgroundGradientFrom: "#fb8c00",
-                backgroundGradientTo: "#F6F6F6",
+                backgroundColor: "#EAEAEA",
+                backgroundGradientFrom: "#EAEAEA",
+                backgroundGradientTo: "#EAEAEA",
                 decimalPlaces: 2, // optional, defaults to 2dp
-                color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
-                labelColor: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
+                color: (opacity = 1) => `rgba(254, 140, 53, ${opacity})`,
+                labelColor: (opacity = 1) => `rgba(129, 129, 129, ${opacity})`,
                 // style: {
                 //   borderRadius: 0,
                 //   width: "90%",
@@ -116,7 +108,7 @@ export default class MyStatisticsScreen extends Component {
             />
           </View>
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

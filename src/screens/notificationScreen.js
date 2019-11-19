@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { StyleSheet, View, TouchableOpacity } from "react-native";
+import { StyleSheet, View } from "react-native";
 import { Container, Content, Text } from "native-base";
 import CustomHeader from "../component/CustomComponents/Header&Footer/Header";
 import CustomFooter from "../component/CustomComponents/Header&Footer/Footer";
@@ -9,25 +9,25 @@ export default class NotificationScreeen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <Content>
           <View style={styles.titleViewStyle}>
             <Text style={styles.titleStyle}>Notificaciones</Text>
           </View>
           <View style={{ height: 10 }} />
-          <TouchableOpacity style={styles.notificationButtonStyle}>
+          <View style={styles.notificationButtonStyle}>
             <Text style={{ textAlign: "center" }}>
               Tu departamento de Carranza se ha rentado
             </Text>
-          </TouchableOpacity>
+          </View>
           <View style={{ height: 15 }} />
-          <TouchableOpacity style={styles.notificationButtonStyle}>
+          <View style={styles.notificationButtonStyle}>
             <Text style={{ textAlign: "center" }}>
               sadasd asetytyyjj erwertry yiiu
             </Text>
-          </TouchableOpacity>
+          </View>
         </Content>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }

@@ -1,4 +1,5 @@
 import React, { Component } from "react";
+import { TouchableOpacity, StyleSheet } from "react-native";
 import { Container, Header, View, Button, Icon, Fab } from "native-base";
 import MapView, { PROVIDER_GOOGLE } from "react-native-maps";
 import CustomHeader from "../component/CustomComponents/Header&Footer/Header";
@@ -10,25 +11,30 @@ export default class MyPropertiesMapViewScreen extends Component {
   render() {
     return (
       <Container>
-        <CustomHeader />
+        <CustomHeader navigation={this.props.navigation} />
         <CustomMyPropertyPageTitle />
         <View style={{ flex: 1 }}>
-          <Fab
-            direction="left"
-            containerStyle={{}}
-            style={{ backgroundColor: "#132D43" }}
-            position="topRight"
+          <TouchableOpacity
+            onPress={() =>
+              this.props.navigation.navigate("PropertiesListScreen")
+            }
+            style={styles.searchButtonStyle}
           >
-            <Icon name="search" />
-          </Fab>
-          <Fab
-            direction="left"
-            containerStyle={{}}
-            style={{ backgroundColor: "#132D43" }}
-            position="topLeft"
+            <Icon
+              style={{ color: "white", fontSize: 22 }}
+              name="bars"
+              type="FontAwesome"
+            />
+          </TouchableOpacity>
+          <TouchableOpacity
+            onPress={() =>
+              this.props.navigation.navigate("SearchingFormScreen")
+            }
+            style={styles.barsButtonStyle}
           >
-            <Icon name="bars" type="FontAwesome" />
-          </Fab>
+            <Icon style={{ color: "white" }} name="search" />
+          </TouchableOpacity>
+
           <MapView
             provider={PROVIDER_GOOGLE}
             style={{ width: "100%", height: 1000 }}
@@ -40,8 +46,35 @@ export default class MyPropertiesMapViewScreen extends Component {
             }}
           ></MapView>
         </View>
-        <CustomFooter />
+        {/* <CustomFooter navigation={this.props.navigation} /> */}
       </Container>
     );
   }
 }
+
+const styles = StyleSheet.create({
+  searchButtonStyle: {
+    position: "absolute",
+    zIndex: 999,
+    left: 20,
+    top: 20,
+    backgroundColor: "#132D43",
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    alignItems: "center",
+    justifyContent: "center"
+  },
+  barsButtonStyle: {
+    position: "absolute",
+    zIndex: 999,
+    right: 20,
+    top: 20,
+    backgroundColor: "#132D43",
+    width: 50,
+    height: 50,
+    borderRadius: 50,
+    alignItems: "center",
+    justifyContent: "center"
+  }
+});

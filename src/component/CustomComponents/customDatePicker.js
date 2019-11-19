@@ -15,63 +15,32 @@ export default class CustomDatePicker extends Component {
     return (
       <View
         style={{
-          height: 55,
-          flexDirection: "row",
+          height: 35,
           marginTop: 10,
-          width: "97%",
+          width: 150,
+          borderRadius: 8,
+          backgroundColor: "#EAEAEA",
           justifyContent: "center",
-          alignSelf: "center",
-          borderRadius: 5,
-          borderWidth: 1,
-          borderColor: CUSTOM_FEILD_COLOR
+          alignItems: "center",
+          marginBottom: 10
         }}
       >
-        <View
-          style={{
-            flex: 1,
-            justifyContent: "center",
-            alignItems: "center"
-          }}
-        >
-          <Icon
-            name={this.props.iconName ? this.props.iconName : "?"}
-            type="FontAwesome"
-            style={{ fontSize: LARGE }}
-          />
-        </View>
-        <View
-          style={{
-            flex: 3,
-            justifyContent: "center",
-            alignItems: "center"
-          }}
-        >
-          <Text style={{ alignSelf: "flex-start" }}>
-            {this.props.title ? this.props.title : "Select Date"}
-          </Text>
-        </View>
-
-        <View
-          style={{ flex: 3, justifyContent: "center", alignItems: "center" }}
-        >
-          <DatePicker
-            androidMode={"spinner"}
-            defaultDate={new Date(1995, 1, 1)}
-            minimumDate={new Date(1990, 1, 1)}
-            maximumDate={new Date(2002, 12, 31)}
-            locale={"en"}
-            timeZoneOffsetInMinutes={undefined}
-            modalTransparent={false}
-            animationType={"slide"}
-            placeHolderTextStyle={{ color: "black" }}
-            placeHolderText="Select"
-            textStyle={{ color: "black" }}
-            placeHolderTextStyle={{ color: "black" }}
-            onDateChange={this.state.setDate}
-            disabled={false}
-            style={{ alignSelf: "flex-start" }}
-          />
-        </View>
+        <DatePicker
+          androidMode={"spinner"}
+          defaultDate={new Date(1995, 1, 1)}
+          minimumDate={new Date(1990, 1, 1)}
+          maximumDate={new Date(2002, 12, 31)}
+          locale={"en"}
+          timeZoneOffsetInMinutes={undefined}
+          modalTransparent={false}
+          animationType={"slide"}
+          placeHolderTextStyle={{ color: "black" }}
+          placeHolderText="D|M|Y"
+          textStyle={{ color: "black" }}
+          placeHolderTextStyle={{ color: "black" }}
+          onDateChange={this.state.setDate}
+          disabled={false}
+        />
       </View>
     );
   }

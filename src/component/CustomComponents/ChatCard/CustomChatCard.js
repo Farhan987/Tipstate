@@ -5,7 +5,9 @@ import { Text, Icon } from "native-base";
 export default class CustomChatCard extends Component {
   render() {
     return (
-      <View>
+      <TouchableOpacity
+        onPress={() => this.props.navigation.navigate("SecondChatScreen")}
+      >
         <View style={{ height: 20 }} />
         <View style={styles.chatCardMainViewStyle}>
           <View style={styles.ImageViewStyle}>
@@ -38,7 +40,7 @@ export default class CustomChatCard extends Component {
             </TouchableOpacity>
           </View>
         </View>
-      </View>
+      </TouchableOpacity>
     );
   }
 }
